@@ -75,6 +75,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
 //    PaneltitrMp3 paneltitrMp3;
     Panelparticipants panelparticipants[];
     Panelparticipant_label panelparticipant_label;
+    Panelparticipant_label2 panelparticipant_label2;
 //
 //    PanelIranQuestions panelIranQuestions;
     int participantscount,
@@ -145,8 +146,8 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
         }
 
         participantscount = database0.getParticipants().length;
-        panelparticipants = new Panelparticipants[participantscount - 1];
-        for (int i = 0; i < participantscount - 1; i++) {
+        panelparticipants = new Panelparticipants[participantscount - 2];
+        for (int i = 0; i < participantscount - 2; i++) {
             panelparticipants[i] = new Panelparticipants(i, this);
             jPanelParicipants.add(panelparticipants[i]);
 //            panelparticipants[i].jToggleButtoniN.setText("> " + (i + 1) + " <");
@@ -154,8 +155,11 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
 //            buttonGroupParticipantactive.add(panelparticipants[i].jToggleButtoniN);
 
         }
-        panelparticipant_label = new Panelparticipant_label(participantscount - 1, this);
+        panelparticipant_label = new Panelparticipant_label(participantscount - 2, this);
         jPanelParicipants.add(panelparticipant_label);
+
+        panelparticipant_label2 = new Panelparticipant_label2(participantscount - 1, this);
+        jPanelParicipants.add(panelparticipant_label2);
 
         participantscount = database0.getParticipantCount();
         jSpinnerParticipantCouint.setValue(participantscount);
@@ -396,13 +400,17 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-    if(newsha)    {updatedatabase();updatecontrolpack(true);}
+        if (newsha) {
+            updatedatabase();
+            updatecontrolpack(true);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if (newsha) {
             calculatePoint(panelQuestion.getSelectedGoz() == panelQuestion.getCorrectGoz());
+            updatecontrolpack(true);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -1719,7 +1727,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
     }
 
     public void updatedatabase() {
-        for (int i = 0; i < database0.getParticipants().length - 1; i++) {
+        for (int i = 0; i < database0.getParticipants().length - 2; i++) {
             database0.getParticipants(i).setPic(panelparticipants[i].getAx());
             database0.getParticipants(i).setPointTotal(panelparticipants[i].getpointTotal());
             database0.getParticipants(i).setCurrent_pointx1000(panelparticipants[i].getPoint());
@@ -1729,29 +1737,74 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
             database0.getParticipants(i).setCurrent_timex100(panelparticipants[i].gettime());
             database0.getParticipants(i).setName(panelparticipants[i].getnames());
         }
-        database0.getParticipants(database0.getParticipants().length - 1).setPic(panelparticipant_label.getAx());
-        database0.getParticipants(database0.getParticipants().length - 1).setName(panelparticipant_label.getnames());
+        database0.getParticipants(database0.getParticipants().length - 2).setPic(panelparticipant_label.getAx());
+        database0.getParticipants(database0.getParticipants().length - 2).setName(panelparticipant_label.getnames());
+
+        database0.getParticipants(database0.getParticipants().length - 1).setPic(panelparticipant_label2.getAx());
+        database0.getParticipants(database0.getParticipants().length - 1).setName(panelparticipant_label2.getnames());
         controll.saveDatabase0();
     }
 
     public void updatecontrolpack(boolean send) {
         updatedatabase();
-        for (int i = 0; i < 5; i++) {
-            controolPack.addDatapackStringPersion(11 + i, database0.getParticipants(0).getName(i));
-            controolPack.addDatapackStringPersion(21 + i, database0.getParticipants(1).getName(i));
-            controolPack.addDatapackStringPersion(31 + i, database0.getParticipants(2).getName(i));
-            controolPack.addDatapackStringPersion(41 + i, database0.getParticipants(3).getName(i));
-            controolPack.addDatapackStringPersion(51 + i, database0.getParticipants(4).getName(i));
-        }
-        controolPack.addDatapackImage(9, database0.getParticipants(0).getPic());
-        controolPack.addDatapackImage(19, database0.getParticipants(1).getPic());
-        controolPack.addDatapackImage(29, database0.getParticipants(2).getPic());
-        controolPack.addDatapackImage(39, database0.getParticipants(3).getPic());
-        controolPack.addDatapackImage(49, database0.getParticipants(4).getPic());
+        if (panelparticipant_label2.lower2Isselected()) {
+            String st;
+            int temp;
+            for (int i = 0; i < 4; i++) {
+                controolPack.addDatapackStringPersion(11 + i * 10, database0.getParticipants(i).getName(0));
 
-        for (int i = 0; i < 4; i++) {
+                controolPack.addDatapackStringPersion(12 + i * 10, "" + database0.getParticipants(i).getCurrent_Speed1234());
+                controolPack.addDatapackStringPersion(13 + i * 10, "" + database0.getParticipants(i).getCurrent_changedAnswer());
+                temp = database0.getParticipants(i).getCurrent_pointx1000();
+                if (temp < 0) {
+                    temp = -temp;
+                    st = "-" + temp / 1000 + "٫" + String.format("%03d", temp % 1000);
+                } else {
+                    st = "" + temp / 1000 + "٫" + String.format("%03d", temp % 1000);
+                }
+                controolPack.addDatapackStringPersion(14 + i * 10, st);
+                temp = database0.getParticipants(i).getPointTotal();
+                if (temp < 0) {
+                     temp = -temp;
+                    st = "-" + temp / 1000 + "٫" + String.format("%03d", temp % 1000);
+                } else {
+                    st = "" + temp / 1000 + "٫" + String.format("%03d", temp % 1000);
+                }
+                controolPack.addDatapackStringPersion(15 + i * 10, st);
+            }
+            for (int i = 0; i < 5; i++) {
+//                controolPack.addDatapackStringPersion(11 + i, database0.getParticipants(0).getName(i));
+//                controolPack.addDatapackStringPersion(21 + i, database0.getParticipants(1).getName(i));
+//                controolPack.addDatapackStringPersion(31 + i, database0.getParticipants(2).getName(i));
+//                controolPack.addDatapackStringPersion(41 + i, database0.getParticipants(3).getName(i));
+                controolPack.addDatapackStringPersion(51 + i, database0.getParticipants(5).getName(i));
+            }
+
+        } else {
+            for (int i = 0; i < 5; i++) {
+                controolPack.addDatapackStringPersion(11 + i, database0.getParticipants(0).getName(i));
+                controolPack.addDatapackStringPersion(21 + i, database0.getParticipants(1).getName(i));
+                controolPack.addDatapackStringPersion(31 + i, database0.getParticipants(2).getName(i));
+                controolPack.addDatapackStringPersion(41 + i, database0.getParticipants(3).getName(i));
+                controolPack.addDatapackStringPersion(51 + i, database0.getParticipants(4).getName(i));
+            }
+        }
+
+        controolPack.addDatapackImage(
+                9, database0.getParticipants(0).getPic());
+        controolPack.addDatapackImage(
+                19, database0.getParticipants(1).getPic());
+        controolPack.addDatapackImage(
+                29, database0.getParticipants(2).getPic());
+        controolPack.addDatapackImage(
+                39, database0.getParticipants(3).getPic());
+        controolPack.addDatapackImage(
+                49, database0.getParticipants(4).getPic());
+
+        for (int i = 0;
+                i < 4; i++) {
             controolPack.addDatapackStringPersion(142 + 5 * i, database0.getParticipants(i).getName(0));
-            controolPack.addDatapackStringPersion(144 + 5 * i, "" + database0.getParticipants(i).getCurrent_timex100()/100+"٫"+String.format("%02d", database0.getParticipants(i).getCurrent_timex100()%100));
+            controolPack.addDatapackStringPersion(144 + 5 * i, "" + database0.getParticipants(i).getCurrent_timex100() / 100 + "٫" + String.format("%02d", database0.getParticipants(i).getCurrent_timex100() % 100));
         }
 
 //        controolPack.addDatapackString(522, "" + panelparticipants[0].getpointTotal());
@@ -1768,6 +1821,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
         if (send) {
             controll.SendControolPack();
         }
+
         controll.saveDatabase0();
     }
 
@@ -1905,8 +1959,6 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
 //    }
     public void update_From_comport(int p0, int p1, int p2, int p3) {
         int timerq = (panelQuestion.getcurrentQtime() * 1000) - panelQuestion.timerq;
-//        System.out.println("timeq*1000= "+panelQuestion.getcurrentQtime()*1000+"   \t timeq="+panelQuestion.timerq+"    and now="+timerq );
-//        int timetotal=panelQuestion.getcurrentQtime()*100;
         int p0old = panelparticipants[0].getSelectedGoz(),
                 p1old = panelparticipants[1].getSelectedGoz(),
                 p2old = panelparticipants[2].getSelectedGoz(),
@@ -1917,7 +1969,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
             temselected = p0;
             panelparticipants[0].setselectedGoz(p0);
             panelparticipants[0].settime(timerq / 10);
-            if (panelparticipant_label.isLOweractive()) {
+            if (panelparticipant_label2.isLOweractive()) {
                 controll.getControllCommandSet().runDatabaseMotion("amar+1_in_" + p0);
             }
             if (p0old != 0 || p0old != -1) {
@@ -1940,7 +1992,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
             temselected = p1;
             panelparticipants[1].setselectedGoz(p1);
             panelparticipants[1].settime(timerq / 10);
-            if (panelparticipant_label.isLOweractive()) {
+            if (panelparticipant_label2.isLOweractive()) {
                 controll.getControllCommandSet().runDatabaseMotion("amar+2_in_" + p1);
             }
             if (p1old != 0 || p1old != -1) {
@@ -1963,7 +2015,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
             temselected = p2;
             panelparticipants[2].setselectedGoz(p2);
             panelparticipants[2].settime(timerq / 10);
-            if (panelparticipant_label.isLOweractive()) {
+            if (panelparticipant_label2.isLOweractive()) {
                 controll.getControllCommandSet().runDatabaseMotion("amar+3_in_" + p2);
             }
             if (p2old != 0 || p2old != -1) {
@@ -1986,7 +2038,9 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
             temselected = p3;
             panelparticipants[3].setselectedGoz(p3);
             panelparticipants[3].settime(timerq / 10);
-                                    if(panelparticipant_label.isLOweractive())controll.getControllCommandSet().runDatabaseMotion("amar+4_in_"+p3);
+            if (panelparticipant_label2.isLOweractive()) {
+                controll.getControllCommandSet().runDatabaseMotion("amar+4_in_" + p3);
+            }
             if (p3old != 0 || p3old != -1) {
                 panelparticipants[3].addError();
             }
@@ -2005,6 +2059,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
         }
         if (temselected != 0 && panelparticipants[0].getSelectedGoz() == temselected && panelparticipants[1].getSelectedGoz() == temselected && panelparticipants[2].getSelectedGoz() == temselected && panelparticipants[3].getSelectedGoz() == temselected) {
             QEnded(panelparticipants[0].getSelectedGoz());
+
         }
         updatedatabase();
         updatecontrolpack(true);
@@ -2017,7 +2072,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
             k = JOptionPane.showConfirmDialog(null, "Are you sure? /nThere is points didn't add to total point");
         }
         if (k == 0) {
-            for (int i = 0; i < database0.getParticipants().length - 1; i++) {
+            for (int i = 0; i < database0.getParticipants().length - 2; i++) {
                 database0.getParticipants(i).clearQ();
                 panelparticipants[i].updatefromdatabase();
                 database0.setSpeed1234Com(0);
@@ -2041,6 +2096,39 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
             panelparticipants[i].setpoint(temp);
         }
         updatedatabase();
+
+        if (!correctAnswer) {
+            switch (panelQuestion.getSelectedGoz()) {
+                case 1:
+                    controll.getControllCommandSet().runDatabaseMotion("select_1_WRong");
+                    break;
+                case 2:
+                    controll.getControllCommandSet().runDatabaseMotion("select_2_WRong");
+                    break;
+                case 3:
+                    controll.getControllCommandSet().runDatabaseMotion("select_3_WRong");
+                    break;
+                case 4:
+                    controll.getControllCommandSet().runDatabaseMotion("select_4_WRong");
+                    break;
+            }
+        }
+        switch (panelQuestion.getCorrectGoz()) {
+            case 1:
+                controll.getControllCommandSet().runDatabaseMotion("select_1_Correct");
+                break;
+            case 2:
+                controll.getControllCommandSet().runDatabaseMotion("select_2_Correct");
+                break;
+            case 3:
+                controll.getControllCommandSet().runDatabaseMotion("select_3_Correct");
+                break;
+            case 4:
+                controll.getControllCommandSet().runDatabaseMotion("select_4_Correct");
+                break;
+        }
+
+        updatecontrolpack(true);
         controll.saveDatabase0();
     }
 
@@ -2088,11 +2176,31 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
 
     }
 
+    void lower2(boolean selected) {
+        if (selected) {
+            updatedatabase();
+            updatecontrolpack(false);
+            controll.getControllCommandSet().runDatabaseMotion("player1_in");
+            controll.getControllCommandSet().runDatabaseMotion("player2_in");
+            controll.getControllCommandSet().runDatabaseMotion("player3_in");
+            controll.getControllCommandSet().runDatabaseMotion("player4_in");
+            controll.getControllCommandSet().runDatabaseMotion("player5_in");
+        } else {
+            controll.getControllCommandSet().runDatabaseMotion("player1_out");
+            controll.getControllCommandSet().runDatabaseMotion("player2_out");
+            controll.getControllCommandSet().runDatabaseMotion("player3_out");
+            controll.getControllCommandSet().runDatabaseMotion("player4_out");
+            controll.getControllCommandSet().runDatabaseMotion("player5_out");
+
+        }
+        controll.SendControolPack();
+    }
+
     void lower(boolean selected) {
         if (selected) {
             updatedatabase();
             updatecontrolpack(false);
-              controll.getControllCommandSet().runDatabaseMotion("Amara_in");
+            controll.getControllCommandSet().runDatabaseMotion("Amara_in");
             switch (database0.getParticipants(0).getCurrent_selection()) {
                 case 0:
                     break;
@@ -2143,7 +2251,7 @@ public class EstekanBase extends javax.swing.JPanel implements TimerUser {
                     break;
 
             }
-          
+
         } else {
             controll.getControllCommandSet().runDatabaseMotion("amar_out");
 

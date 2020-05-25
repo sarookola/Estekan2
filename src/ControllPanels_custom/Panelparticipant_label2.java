@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  *
  * @author Shayan
  */
-public class Panelparticipant_label extends javax.swing.JPanel{// implements TimerUser {
+public class Panelparticipant_label2 extends javax.swing.JPanel{// implements TimerUser {
     
     EstekanBase main;
     Database0 database0;
@@ -40,7 +40,7 @@ void nof(){
 void non(){
     newsha=b;
 }
-    public Panelparticipant_label(int id, EstekanBase main) {
+    public Panelparticipant_label2(int id, EstekanBase main) {
         newsha = false;
         initComponents();
         this.id = id;
@@ -70,22 +70,13 @@ void non(){
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jToggleButtoniN = new javax.swing.JToggleButton();
         jPanelPic = new javax.swing.JPanel();
         jPanelSelection = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jToggleButtonLower = new javax.swing.JToggleButton();
         jPanel13 = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jToggleButtonLower2 = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
@@ -98,15 +89,6 @@ void non(){
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel6.setLayout(new java.awt.GridLayout(1, 0));
-
-        jToggleButtoniN.setText("In");
-        jToggleButtoniN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButtoniNActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jToggleButtoniN);
-
         jPanel3.add(jPanel6);
 
         jPanelPic.setBackground(new java.awt.Color(0, 0, 0));
@@ -120,45 +102,18 @@ void non(){
         jPanel3.add(jPanelPic);
 
         jPanelSelection.setLayout(new java.awt.GridLayout(1, 0));
-
-        jButton1.setText("Out");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanelSelection.add(jButton1);
-
         jPanel3.add(jPanelSelection);
 
         jPanel2.add(jPanel3);
 
         jPanel9.setLayout(new java.awt.BorderLayout());
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("total POint");
-        jPanel9.add(jLabel3, java.awt.BorderLayout.CENTER);
-
         jPanel2.add(jPanel9);
 
         jPanel10.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel11.setLayout(new java.awt.GridLayout(0, 1));
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("error>>");
-        jPanel11.add(jLabel2);
-
-        jLabel1.setText("<<time");
-        jPanel11.add(jLabel1);
-
-        jPanel10.add(jPanel11);
-
         jPanel12.setLayout(new java.awt.GridLayout(0, 1));
 
-        jToggleButtonLower.setText("Lower1");
-        jToggleButtonLower.setEnabled(false);
+        jToggleButtonLower.setText("Lower SELECT");
         jToggleButtonLower.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButtonLowerActionPerformed(evt);
@@ -172,21 +127,9 @@ void non(){
 
         jPanel13.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel14.setLayout(new java.awt.GridLayout(0, 1));
-
-        jLabel4.setText("<<speed");
-        jPanel14.add(jLabel4);
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("point>>");
-        jPanel14.add(jLabel5);
-
-        jPanel13.add(jPanel14);
-
         jPanel15.setLayout(new java.awt.GridLayout(0, 1));
 
-        jToggleButtonLower2.setText("Lower2");
-        jToggleButtonLower2.setEnabled(false);
+        jToggleButtonLower2.setText("Lower  POINTS");
         jToggleButtonLower2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButtonLower2ActionPerformed(evt);
@@ -208,29 +151,19 @@ void non(){
         add(jPanel4);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButtoniNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtoniNActionPerformed
-        // TODO add your handling code here:
-         if(newsha )        main.participantselect(id+1 ,jToggleButtoniN.isSelected());
-    }//GEN-LAST:event_jToggleButtoniNActionPerformed
-
     private void jPanelPicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPicMouseClicked
         // TODO add your handling code here:
         if(newsha )  getPic();
     }//GEN-LAST:event_jPanelPicMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-           if(newsha )        main.participantallOff();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jToggleButtonLower2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonLower2ActionPerformed
         // TODO add your handling code here:
-        if(newsha)  main.lower2(jToggleButtonLower2.isSelected());
+               if(newsha)  main.lower2(jToggleButtonLower2.isSelected());
     }//GEN-LAST:event_jToggleButtonLower2ActionPerformed
 
     private void jToggleButtonLowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonLowerActionPerformed
         // TODO add your handling code here:
-        if(newsha)  main.lower(jToggleButtonLower.isSelected());
+       if(newsha)  main.lower(jToggleButtonLower.isSelected());
     }//GEN-LAST:event_jToggleButtonLowerActionPerformed
     public void tableIn(boolean in) {
         boolean newsh = newsha;
@@ -244,17 +177,9 @@ void non(){
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -266,7 +191,6 @@ void non(){
     private javax.swing.JPanel jPanelSelection;
     private javax.swing.JToggleButton jToggleButtonLower;
     private javax.swing.JToggleButton jToggleButtonLower2;
-    private javax.swing.JToggleButton jToggleButtoniN;
     // End of variables declaration//GEN-END:variables
 //    int current_timex100, current_selection, current_changedAnswer, current_pointx1000, current_Speed1234;
     private void init() {
@@ -489,22 +413,21 @@ return imagePanel.getAddress();
          return nams;
     }
       
-      void setInOut(boolean b) {
-     nof();
-     jToggleButtoniN.setSelected(b);
-     non();
-    }
-      
+//      void setInOut(boolean b) {
+//     nof();
+//     jToggleButtoniN.setSelected(b);
+//     non();
+//    }
+//      
       public boolean isLOweractive(){
           return jToggleButtonLower.isSelected();
       }
-       void reset() {
-       nof();
-     jToggleButtoniN.setSelected(false);
-     jToggleButtonLower.setSelected(false);
-       jToggleButtonLower2.setSelected(false);
-     non();
-    }
+//       void reset() {
+//       nof();
+//     jToggleButtoniN.setSelected(false);
+//     jToggleButtonLower.setSelected(false);
+//     non();
+//    }
 
     boolean lower2Isselected() {
         return jToggleButtonLower2.isSelected();

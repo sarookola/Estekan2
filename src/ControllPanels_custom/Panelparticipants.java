@@ -243,7 +243,7 @@ public class Panelparticipants extends javax.swing.JPanel implements TimerUser {
     // End of variables declaration//GEN-END:variables
 //    int current_timex100, current_selection, current_changedAnswer, current_pointx1000, current_Speed1234;
     private void init() {
-        jtextname = new JTextField[database0.getParticipants().length];
+        jtextname = new JTextField[5];
         for (int i = 0; i < jtextname.length; i++) {
             jtextname[i] = new JTextField(database0.getParticipants(id).getName(i));
             jtextname[i].setHorizontalAlignment(javax.swing.JTextField.CENTER);

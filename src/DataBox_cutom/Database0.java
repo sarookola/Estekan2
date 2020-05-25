@@ -256,9 +256,9 @@ public class Database0 {
     }
 
     void newParticipant() {
-        participants = new Participant[ParticipantCount];
+        participants = new Participant[ParticipantCount+1];
 
-        for (int i = 0; i < ParticipantCount; i++) {
+        for (int i = 0; i < ParticipantCount+1; i++) {
             participants[i] = new Participant();
         }
         ParticipantCount = 0;

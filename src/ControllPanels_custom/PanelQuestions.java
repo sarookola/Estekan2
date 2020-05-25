@@ -273,7 +273,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         });
         jPanel21.add(jButton6);
 
-        jToggleButtonShow.setText("نمایش");
+        jToggleButtonShow.setText("گزینه ها");
         jToggleButtonShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButtonShowActionPerformed(evt);
@@ -300,7 +300,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
         jPanel26.setLayout(new java.awt.GridLayout(0, 1));
 
-        jPanel19.setLayout(new java.awt.GridLayout());
+        jPanel19.setLayout(new java.awt.GridLayout(1, 0));
 
         jToggleButtonDidan5.setText("دیدن");
         jToggleButtonDidan5.setMargin(new java.awt.Insets(1, 1, 1, 1));
@@ -585,17 +585,23 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-        updateCurrentQ();
+        if (newsha) {
+            updateCurrentQ();
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-        updateCurrentQ();
+        if (newsha) {
+            updateCurrentQ();
+        }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
-        updateCurrentQ();
+        if (newsha) {
+            updateCurrentQ();
+        }
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void jComboBoxBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBasketActionPerformed
@@ -633,17 +639,23 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
     private void jButtonSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelectActionPerformed
         // TODO add your handling code here:
-        selectGoz(0);
+        if (newsha) {
+            selectGoz(1);
+        }
     }//GEN-LAST:event_jButtonSelectActionPerformed
 
     private void jButtonSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelect1ActionPerformed
         // TODO add your handling code here:
-        selectGoz(1);
+        if (newsha) {
+            selectGoz(2);
+        }
     }//GEN-LAST:event_jButtonSelect1ActionPerformed
 
     private void jButtonSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelect2ActionPerformed
         // TODO add your handling code here:
-        selectGoz(2);
+        if (newsha) {
+            selectGoz(3);
+        }
     }//GEN-LAST:event_jButtonSelect2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -722,8 +734,9 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
     private void jToggleButtonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonShowActionPerformed
         // TODO add your handling code here:
+
         if (newsha) {
-            gameQShow(jToggleButtonShow.isSelected());
+            showGozandtime(jToggleButtonShow.isSelected());
         }
     }//GEN-LAST:event_jToggleButtonShowActionPerformed
 
@@ -736,10 +749,16 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
         // TODO add your handling code here:
+        if (newsha) {
+            updateCurrentQ();
+        }
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jButtonSelect3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelect3ActionPerformed
         // TODO add your handling code here:
+        if (newsha) {
+            selectGoz(4);
+        }
     }//GEN-LAST:event_jButtonSelect3ActionPerformed
 
     private void jSpinnertimeMainStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnertimeMainStateChanged
@@ -783,6 +802,9 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
     private void jToggleButtonDidan0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDidan0ActionPerformed
         // TODO add your handling code here:
+        if (newsha) {
+            gameQShow(jToggleButtonDidan0.isSelected());
+        }
     }//GEN-LAST:event_jToggleButtonDidan0ActionPerformed
 
 
@@ -923,6 +945,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
                 break;
             case 3:
                 jCheckBox3.setSelected(true);
+                break;
             case 4:
                 jCheckBox4.setSelected(true);
                 break;
@@ -1062,13 +1085,56 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 //        jButtonshow.setEnabled(activeShow);
 //    }
     public void selectGoz(int i) {
+        if (gozselected) {
+            switch (i) {
+                case 1:
+//                    controll.getControllCommandSet().runDatabaseMotion("select_1_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_2_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_3_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_4_NO");
+                    break;
+                case 2:
+                    controll.getControllCommandSet().runDatabaseMotion("select_1_NO");
+//                    controll.getControllCommandSet().runDatabaseMotion("select_2_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_3_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_4_NO");
+                    break;
+                case 3:
+                    controll.getControllCommandSet().runDatabaseMotion("select_1_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_2_NO");
+//                    controll.getControllCommandSet().runDatabaseMotion("select_3_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_4_NO");
+                    break;
+                case 4:
+                    controll.getControllCommandSet().runDatabaseMotion("select_1_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_2_NO");
+                    controll.getControllCommandSet().runDatabaseMotion("select_3_NO");
+//                    controll.getControllCommandSet().runDatabaseMotion("select_4_NO");
+                    break;
+            }
 
+        }
         gozselected = true;
         gozSelectedN = i;
 //        controlPackUpdateSend(true);
 //        if (database0.getSelectedgame() != 9) {
         timerActive = false;
         jToggleButtonTimer.setSelected(false);
+        switch (i) {
+            case 1:
+                controll.getControllCommandSet().runDatabaseMotion("select_1");
+                break;
+            case 2:
+                controll.getControllCommandSet().runDatabaseMotion("select_2");
+                break;
+            case 3:
+                controll.getControllCommandSet().runDatabaseMotion("select_3");
+                break;
+            case 4:
+                controll.getControllCommandSet().runDatabaseMotion("select_4");
+                break;
+        }
+        naMain.updatecontrolpack(true);
 //        if (gozselected && gozSelectedN + 1 == getcurrentQuestion().getCorrect_goz()) {
 //            sounds.playWinNonStop();
 //        } else {
@@ -1083,8 +1149,10 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 //            jToggleButtonTimer.setSelected(false);
 //        }
 //        naMain.qgameUpdate(false, getcurrentQuestion(), (int) (timerq / 1000));
-        naMain.showAnswer(gozSelectedN == getCorrectGoz());
+        if (gozselected) {
+            naMain.showAnswer(gozSelectedN == getCorrectGoz());
 
+        }
     }
 
     private void showqG(int i, boolean selected) {
@@ -1125,7 +1193,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
                     break;
             }
         }
-         controll.SendControolPack();
+        controll.SendControolPack();
     }
 
     private void timeEnded() {
@@ -1381,11 +1449,42 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         if (onOff) {
             controlPackUpdateSend(false);
             controll.getControllCommandSet().runDatabaseMotion("Timer_in");
-             controll.SendControolPack();
+            controll.SendControolPack();
         } else {
             controll.getControllCommandSet().runDatabaseMotion("Timer_out");
-             controll.SendControolPack();
+            controll.SendControolPack();
         }
 
+    }
+
+    private void showGozandtime(boolean OnOff) {
+        if (OnOff) {
+            if(!jToggleButtonTimer.isSelected()){
+                resetq();
+               jToggleButtonTimer.setSelected(true);
+                timerActive = jToggleButtonTimer.isSelected();
+            }
+           
+            controll.getControllCommandSet().runDatabaseMotion("Timer_in");
+            controll.getControllCommandSet().runDatabaseMotion("Goz1_in");
+            controll.getControllCommandSet().runDatabaseMotion("Goz2_in");
+            controll.getControllCommandSet().runDatabaseMotion("Goz3_in");
+            controll.getControllCommandSet().runDatabaseMotion("Goz4_in");
+
+        }
+        else {
+            controll.getControllCommandSet().runDatabaseMotion("Timer_out");
+            controll.getControllCommandSet().runDatabaseMotion("Goz1_out");
+            controll.getControllCommandSet().runDatabaseMotion("Goz2_out");
+            controll.getControllCommandSet().runDatabaseMotion("Goz3_out");
+            controll.getControllCommandSet().runDatabaseMotion("Goz4_out");
+        }
+         jToggleButtonDidan1.setSelected(OnOff);
+          jToggleButtonDidan2.setSelected(OnOff);
+           jToggleButtonDidan3.setSelected(OnOff);
+            jToggleButtonDidan4.setSelected(OnOff);
+            jToggleButtonDidan5.setSelected(OnOff);
+           
+        naMain.updatecontrolpack(true);
     }
 }
