@@ -19,7 +19,7 @@ import javax.swing.JTextField;
  */
 public class Panelparticipants extends javax.swing.JPanel implements TimerUser {
 
-    namaMain main;
+    EstekanBase main;
     Database0 database0;
     int id;
     boolean newsha = false;
@@ -34,7 +34,7 @@ public class Panelparticipants extends javax.swing.JPanel implements TimerUser {
     ImagePanel imagePanel;
     int selected;
 
-    public Panelparticipants(int id, namaMain main) {
+    public Panelparticipants(int id, EstekanBase main) {
         newsha = false;
         initComponents();
         this.id = id;

@@ -5,7 +5,7 @@
  */
 package ComunicatePort;
 
-import ControllPanels_custom.namaMain;
+import ControllPanels_custom.EstekanBase;
 import com.fazecast.jSerialComm.SerialPort;
 
 
@@ -21,11 +21,11 @@ public class PanelComport extends javax.swing.JPanel implements ComunicatePortI{
      */
     
     Comport2 comport2;
-    namaMain nMain;
+    EstekanBase nMain;
     int id;
     boolean newsha=false;
 
-    public PanelComport(namaMain nMain) {
+    public PanelComport(EstekanBase nMain) {
          initComponents();
         comport2 = new Comport2(this);
         initComport();

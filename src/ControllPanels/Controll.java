@@ -8,7 +8,7 @@ package ControllPanels;
 
 import ComunicatePort.PanelComport;
 import ControllPanels_custom.FileManipulat;
-import ControllPanels_custom.namaMain;
+import ControllPanels_custom.EstekanBase;
 import DataBox_cutom.Database0;
 import DataBox_cutom.Database1;
 import ControllPanels_custom.Sounds2;
@@ -58,7 +58,7 @@ public class Controll extends javax.swing.JPanel implements ControllInterFace {
     int bigestPoint = 20;
     boolean newsha;//, serverFree;
 //    ImagePanel imagePanel1;
-    namaMain nMain;
+    EstekanBase nMain;
     PanelComport panelComport;
     PanelComport communicatePortPanel;
 
@@ -88,7 +88,7 @@ backup();
 
 //        controllPanel0 = new ControllPanelx(this);
 //        jTabbedPane.add("controllPanel0",controllPanel0);
-        nMain = new namaMain(this);
+        nMain = new EstekanBase(this);
         communicatePortPanel = new PanelComport(nMain);
         jTabbedPane.add("Main Game Panel ", nMain);
 

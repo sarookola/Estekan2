@@ -15,7 +15,7 @@ public class Tv_1to20 extends javax.swing.JPanel  {
 
     int id;
     int gameindex;
-    namaMain nammain;
+    EstekanBase nammain;
     boolean selected;
     boolean newsha = false;
 
@@ -28,7 +28,7 @@ public class Tv_1to20 extends javax.swing.JPanel  {
         newsha = true;
     }
 
-    public Tv_1to20(int id, namaMain nammain) {
+    public Tv_1to20(int id, EstekanBase nammain) {
         newsha = false;
         initComponents();
         this.id = id;
@@ -44,7 +44,7 @@ public class Tv_1to20 extends javax.swing.JPanel  {
         newsha = true;
     }
 
-//    public Tv_1to20(int id, namaMain nammain, String code) {
+//    public Tv_1to20(int id, EstekanBase nammain, String code) {
 //        newsha = false;
 //        initComponents();
 //

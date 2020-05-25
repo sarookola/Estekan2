@@ -19,19 +19,19 @@ import javax.swing.JOptionPane;
  *
  * @author shayan
  */
-public class namaMain extends javax.swing.JPanel implements TimerUser {
+public class EstekanBase extends javax.swing.JPanel implements TimerUser {
 
     //quesinin   
 //    String gametvfileName[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "pictures\\Media\\GameFiles\\Soal\\00.avi",};
     /**
      * Creates new form namaMain
      */
-    public namaMain() {
+    public EstekanBase() {
         initComponents();
 
     }
 
-    public namaMain(Controll controll) {
+    public EstekanBase(Controll controll) {
         newsha = false;
         initComponents();
         this.controll = controll;
@@ -966,7 +966,7 @@ public class namaMain extends javax.swing.JPanel implements TimerUser {
 //                jlp player = jlp.createInstance(strings);
 //                player.play();
 //            } catch (JavaLayerException ex) {
-//                Logger.getLogger(namaMain.class.getName()).log(Level.SEVERE, null, ex);
+//                Logger.getLogger(EstekanBase.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //        }
 //    }

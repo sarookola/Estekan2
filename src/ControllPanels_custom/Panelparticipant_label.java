@@ -18,7 +18,7 @@ import javax.swing.JTextField;
  */
 public class Panelparticipant_label extends javax.swing.JPanel{// implements TimerUser {
     
-    namaMain main;
+    EstekanBase main;
     Database0 database0;
     int id;
     boolean newsha = false;
@@ -40,7 +40,7 @@ void nof(){
 void non(){
     newsha=b;
 }
-    public Panelparticipant_label(int id, namaMain main) {
+    public Panelparticipant_label(int id, EstekanBase main) {
         newsha = false;
         initComponents();
         this.id = id;

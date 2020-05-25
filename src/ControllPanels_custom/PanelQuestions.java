@@ -31,7 +31,7 @@ import javax.swing.JFrame;
  */
 public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
-    namaMain naMain;
+    EstekanBase naMain;
     Controll controll;
     TimerTimer timer;
     Sounds2 sounds;
@@ -48,7 +48,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
     /**
      * Creates new form QuestionPanel
      */
-    public PanelQuestions(namaMain naMain) {
+    public PanelQuestions(EstekanBase naMain) {
         newsha = false;
         initComponents();
         this.naMain = naMain;
