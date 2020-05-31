@@ -162,5 +162,9 @@ playLong(silence);
         playLittle(Goz_in);
     }
 
+    void playBooktext() {
+         playLong(qTExt); 
+    }
+
 
 }

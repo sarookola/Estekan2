@@ -10,6 +10,7 @@ import DataBox_cutom.Questions;
 import ControllPanels.Controll;
 import JSO.Com.DataBox.ControolPack;
 import JSO.Com.DataBox.DataPackString;
+import JSO.Com.Main.ImagePanel;
 import JSO.Com.Main.TimerTimer;
 import JSO.Com.Main.TimerUser;
 import java.awt.event.ActionEvent;
@@ -45,6 +46,8 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
     int timerq;
     private boolean timerActive;
 
+    ImagePanel imagePanel;
+
     /**
      * Creates new form QuestionPanel
      */
@@ -67,6 +70,16 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         newsha = true;
         jComboBoxBasket.setSelectedIndex(0);
     }
+    boolean b;
+
+    void nof() {
+        b = newsha;
+        newsha = false;
+    }
+
+    void non() {
+        newsha = b;
+    }
 
     private void initPanel() {
         jComboBoxBasket.removeAll();
@@ -74,6 +87,8 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         for (int i = 0; i < database.getqBAsketname().length; i++) {
             jComboBoxBasket.addItem(database.getqBAsketname(i));
         }
+        imagePanel = new ImagePanel();
+        jPanelPic.add(imagePanel);
 //        jButtonshow.setEnabled(false);
     }
 
@@ -116,6 +131,9 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jToggleButtonShow = new javax.swing.JToggleButton();
+        jPanel29 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel32 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
         jToggleButtonDidan0 = new javax.swing.JToggleButton();
         jPanel26 = new javax.swing.JPanel();
@@ -124,6 +142,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         jSpinnertime = new javax.swing.JSpinner();
         jToggleButtonTimer = new javax.swing.JToggleButton();
         jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -161,10 +180,18 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         jPanel12 = new javax.swing.JPanel();
         jCheckBox4 = new javax.swing.JCheckBox();
         jButtonSelect3 = new javax.swing.JButton();
+        jPanel33 = new javax.swing.JPanel();
+        jPanel34 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextAreaBOOK = new javax.swing.JTextArea();
+        jPanel35 = new javax.swing.JPanel();
+        jPanelPic = new javax.swing.JPanel();
+        jPanel36 = new javax.swing.JPanel();
+        jToggleButtonBookShow = new javax.swing.JToggleButton();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel1.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel18.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -288,7 +315,11 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
         jPanel18.add(jPanel13);
 
-        jPanel1.add(jPanel18);
+        jPanel1.add(jPanel18, java.awt.BorderLayout.NORTH);
+
+        jPanel29.setLayout(new java.awt.GridLayout(1, 1));
+
+        jPanel32.setLayout(new java.awt.GridLayout(0, 1));
 
         jPanel30.setLayout(new java.awt.BorderLayout());
 
@@ -343,6 +374,14 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         });
         jPanel26.add(jButton5);
 
+        jButton7.setText("نمایش متن");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel26.add(jButton7);
+
         jPanel30.add(jPanel26, java.awt.BorderLayout.EAST);
 
         jPanel14.setLayout(new java.awt.GridLayout(1, 0));
@@ -378,7 +417,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
         jPanel30.add(jPanel28, java.awt.BorderLayout.SOUTH);
 
-        jPanel1.add(jPanel30);
+        jPanel32.add(jPanel30);
 
         jPanel20.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -581,7 +620,54 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
         jPanel20.add(jPanel16);
 
-        jPanel1.add(jPanel20);
+        jPanel32.add(jPanel20);
+
+        jTabbedPane1.addTab("سوال", jPanel32);
+
+        jPanel33.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel34.setLayout(new java.awt.GridLayout(1, 0));
+
+        jTextAreaBOOK.setColumns(20);
+        jTextAreaBOOK.setFont(new java.awt.Font("SHayan1", 1, 18)); // NOI18N
+        jTextAreaBOOK.setRows(5);
+        jTextAreaBOOK.setText("سوال از اچیست");
+        jTextAreaBOOK.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane3.setViewportView(jTextAreaBOOK);
+
+        jPanel34.add(jScrollPane3);
+
+        jPanel35.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanelPic.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelPic.setMinimumSize(new java.awt.Dimension(50, 50));
+        jPanelPic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelPicMouseClicked(evt);
+            }
+        });
+        jPanelPic.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel35.add(jPanelPic);
+
+        jToggleButtonBookShow.setText("نمایش کتاب");
+        jToggleButtonBookShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonBookShowActionPerformed(evt);
+            }
+        });
+        jPanel36.add(jToggleButtonBookShow);
+
+        jPanel35.add(jPanel36);
+
+        jPanel34.add(jPanel35);
+
+        jPanel33.add(jPanel34);
+
+        jTabbedPane1.addTab("کتاب و نویسنده", jPanel33);
+
+        jPanel29.add(jTabbedPane1);
+
+        jPanel1.add(jPanel29, java.awt.BorderLayout.CENTER);
 
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
@@ -711,6 +797,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         // TODO add your handling code here:
         if (newsha) {
             resetq(0);
+            updateout();
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -781,17 +868,41 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
     private void jToggleButtonDidan0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDidan0ActionPerformed
         // TODO add your handling code here:
         if (newsha) {
-            gameQShow(jToggleButtonDidan0.isSelected());
+            gameQShow2(jToggleButtonDidan0.isSelected());
         }
     }//GEN-LAST:event_jToggleButtonDidan0ActionPerformed
 
     private void jToggleButtonDidan6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDidan6ActionPerformed
         // TODO add your handling code here:
 
-          if (newsha) {
+        if (newsha) {
             showqG(0, jToggleButtonDidan6.isSelected());
+            nof();
+            jToggleButtonDidan0.setSelected(false);
+            non();
         }
     }//GEN-LAST:event_jToggleButtonDidan6ActionPerformed
+
+    private void jPanelPicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPicMouseClicked
+        // TODO add your handling code here:
+        getPic();
+    }//GEN-LAST:event_jPanelPicMouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        if (newsha) {
+            nof();
+            jToggleButtonBookShow.setSelected(false);
+            jToggleButtonDidan0.setSelected(true);
+            non();
+            gameQShow(jToggleButtonDidan0.isSelected());
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jToggleButtonBookShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonBookShowActionPerformed
+        // TODO add your handling code here:
+        bookShow(jToggleButtonBookShow.isSelected());
+    }//GEN-LAST:event_jToggleButtonBookShowActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -802,6 +913,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButtonSelect;
     private javax.swing.JButton jButtonSelect1;
     private javax.swing.JButton jButtonSelect2;
@@ -835,24 +947,35 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelPic;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinnertime;
     private javax.swing.JSpinner jSpinnertimeMain;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaBOOK;
     private javax.swing.JTextField jTextFieldQ1;
     private javax.swing.JTextField jTextFieldQ2;
     private javax.swing.JTextField jTextFieldQ3;
     private javax.swing.JTextField jTextFieldQ4;
     private javax.swing.JTextField jTextFieldQ5;
+    private javax.swing.JToggleButton jToggleButtonBookShow;
     private javax.swing.JToggleButton jToggleButtonDidan0;
     private javax.swing.JToggleButton jToggleButtonDidan1;
     private javax.swing.JToggleButton jToggleButtonDidan2;
@@ -915,12 +1038,14 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         newsha = false;
         questionIndexSelected = jComboBoxindex.getSelectedIndex();
         Questions q = database.getQuestion(selectedBasket, questionIndexSelected);
-         jTextFieldQ5.setText(q.getGoz0());
+        jTextFieldQ5.setText(q.getGoz0());
         jTextArea1.setText(q.getQuestion());
         jTextFieldQ1.setText(q.getGoz1());
         jTextFieldQ2.setText(q.getGoz2());
         jTextFieldQ3.setText(q.getGoz3());
         jTextFieldQ4.setText(q.getGoz4());
+        imagePanel.drawImage(q.getBookPic());
+        jTextAreaBOOK.setText(q.getBookText());
         jSpinnertimeMain.setValue(q.getTime());
         jSpinnertime.setValue(q.getTime());
         timerq = q.getTime() * 1000;
@@ -972,6 +1097,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
             database.setqQuestion(selectedBasket, questionIndexSelected, getcurrentQuestion());
             updatejcombo(questionIndexSelected);
         }
+
         controll.saveDatabase0();
 //        updatejcombo(jComboBoxindex.getSelectedIndex());
     }
@@ -989,12 +1115,15 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
     private Questions getcurrentQuestion() {
         Questions q = new Questions();
         q.setQuestion(jTextArea1.getText());
-         q.setGoz0(jTextFieldQ5.getText());
+        q.setGoz0(jTextFieldQ5.getText());
         q.setGoz1(jTextFieldQ1.getText());
         q.setGoz2(jTextFieldQ2.getText());
         q.setGoz3(jTextFieldQ3.getText());
         q.setGoz4(jTextFieldQ4.getText());
         q.setUsed(jCheckBoxUsed.isSelected());
+        q.setBookPic(imagePanel.getAddress());
+        q.setBookText(jTextAreaBOOK.getText());
+
         q.setTime((int) jSpinnertimeMain.getValue());
         int x = 0;
         x = Integer.parseInt(buttonGroupCorrectAnswer.getSelection().getActionCommand());
@@ -1153,9 +1282,11 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
             controlPackUpdateSend(false);
             switch (i) {
                 case 0:
+                    controll.getControllCommandSet().runDatabaseMotion("Qshow1_out");
                     controll.getControllCommandSet().runDatabaseMotion("QUEStion_IN");
-                     controll.getControllCommandSet().runDatabaseMotion("Timer_in");
-                         sounds.playNotAsItSeems();
+                    controll.getControllCommandSet().runDatabaseMotion("QUEStion_IN");
+                    controll.getControllCommandSet().runDatabaseMotion("Timer_in");
+                    sounds.playNotAsItSeems();
                     break;
                 case 1:
                     controll.getControllCommandSet().runDatabaseMotion("Goz1_in");
@@ -1178,7 +1309,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
                     controll.getControllCommandSet().runDatabaseMotion("Timer_out");
                     controll.getControllCommandSet().runDatabaseMotion("QUEStion_OUT");
                     break;
-                     case 1:
+                case 1:
                     controll.getControllCommandSet().runDatabaseMotion("Goz1_out");
                     break;
                 case 2:
@@ -1235,7 +1366,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
     private void resetq(int deltatimeSecond) {
         naMain.clearQ();
         updateCurrentQ();
-        jSpinnertime.setValue((int) jSpinnertimeMain.getValue()+deltatimeSecond);
+        jSpinnertime.setValue((int) jSpinnertimeMain.getValue() + deltatimeSecond);
     }
 
     private void readfile() {
@@ -1373,7 +1504,7 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 //        int b = database.getSettingitemIdforgame(0);
         if (showHide) {
             controlPackUpdateSend(false);
-
+            controll.getControllCommandSet().runDatabaseMotion("Bookintro_out");
             controll.getControllCommandSet().runDatabaseMotion("Qshow1_in");
             sounds.playQtext();
         } else {
@@ -1383,13 +1514,31 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
         controll.SendControolPack();
         setQuUsed(true);
     }
+    private void gameQShow2(boolean showHide) {
+//        gozselected = false;
+//        int b = database.getSettingitemIdforgame(0);
+        if (showHide) {
+            controlPackUpdateSend(false);
+//            controll.getControllCommandSet().runDatabaseMotion("Bookintro_out");
+            controll.getControllCommandSet().runDatabaseMotion("Qshow1_in");
+//            sounds.playQtext();
+        } else {
+
+            controll.getControllCommandSet().runDatabaseMotion("Qshow1_out");
+        }
+        controll.SendControolPack();
+//        setQuUsed(true);
+    }
 
     private void controlPackUpdateSend(boolean send) {
 //        int b = database.getSettingitemIdforgame(0);
 
         Questions q = getcurrentQuestion();
         controolPack.addDatapackStringPersion(64, q.getQuestion());
-            controolPack.addDatapackStringPersion(107, q.getGoz0());
+        controolPack.addDatapackStringPersion(69, q.getBookText());
+        controolPack.addDatapackImage(67, q.getBookPic());
+
+        controolPack.addDatapackStringPersion(107, q.getGoz0());
         controolPack.addDatapackStringPersion(112, "" + (q.getTime() - (int) jSpinnertime.getValue()));
         controolPack.addDatapackStringPersion(115, (int) jSpinnertime.getValue() + " / " + (q.getTime()));
 
@@ -1464,21 +1613,21 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
 
     private void showGozandtime(boolean OnOff) {
         if (OnOff) {
-            if(!jToggleButtonTimer.isSelected()){
-                resetq(+3);
-               jToggleButtonTimer.setSelected(true);
-                timerActive = jToggleButtonTimer.isSelected();
-                
-            }
-            sounds.playGoz_in();
+           
+           
             controll.getControllCommandSet().runDatabaseMotion("Goz1_in");
             controll.getControllCommandSet().runDatabaseMotion("Goz2_in");
             controll.getControllCommandSet().runDatabaseMotion("Goz3_in");
             controll.getControllCommandSet().runDatabaseMotion("Goz4_in");
+            sounds.playGoz_in();
+ if (!jToggleButtonTimer.isSelected()) {
+                resetq(+3);
+                jToggleButtonTimer.setSelected(true);
+                timerActive = jToggleButtonTimer.isSelected();
 
-        }
-        else {
-             sounds.playGoz_in();
+            }
+        } else {
+            sounds.playGoz_in();
             controll.getControllCommandSet().runDatabaseMotion("QUEStion_OUT");
             controll.getControllCommandSet().runDatabaseMotion("Timer_out");
             controll.getControllCommandSet().runDatabaseMotion("Goz1_out");
@@ -1486,18 +1635,53 @@ public class PanelQuestions extends javax.swing.JPanel implements TimerUser {
             controll.getControllCommandSet().runDatabaseMotion("Goz3_out");
             controll.getControllCommandSet().runDatabaseMotion("Goz4_out");
         }
-         jToggleButtonDidan1.setSelected(OnOff);
-          jToggleButtonDidan2.setSelected(OnOff);
-           jToggleButtonDidan3.setSelected(OnOff);
-            jToggleButtonDidan4.setSelected(OnOff);
-            if(jToggleButtonDidan5.isSelected())
+        jToggleButtonDidan1.setSelected(OnOff);
+        jToggleButtonDidan2.setSelected(OnOff);
+        jToggleButtonDidan3.setSelected(OnOff);
+        jToggleButtonDidan4.setSelected(OnOff);
+        if (jToggleButtonDidan5.isSelected()) {
             jToggleButtonDidan5.setSelected(OnOff);
-              if(jToggleButtonDidan6.isSelected())
-              jToggleButtonDidan6.setSelected(OnOff);
-            
-           
+        }
+        if (jToggleButtonDidan6.isSelected()) {
+            jToggleButtonDidan6.setSelected(OnOff);
+        }
+
         naMain.updatecontrolpack(true);
     }
 
+    private void getPic() {
+        imagePanel.drawImage(selectPicRead());
+        updateCurrentQ();
+    }
+
+    public String selectPicRead() {
+//          System.out.println("990231- selectpic run 10");
+//        javax.swing.JFrame f1 = new javax.swing.JFrame("dsj - play movie");
+        java.awt.FileDialog fd = new java.awt.FileDialog(new JFrame("انتخاب عکس"), "انتخاب تصاویر", java.awt.FileDialog.LOAD);
+        fd.setMultipleMode(false);
+//        fd.setDirectory(database1.getPicTop());
+        fd.setVisible(true);
+//  System.out.println("990231- selectpic run 11");
+        if (fd.getFile() == null) {
+            return "pictures\\nopic.png";
+        } else {
+//             System.out.println("990231- selectpic run 12");
+            return fd.getDirectory() + fd.getFile();
+        }
+
+    }
+
+    private void bookShow(boolean OnOff) {
+        if (OnOff) {
+
+            controll.getControllCommandSet().runDatabaseMotion("Bookintro_IN");
+            controlPackUpdateSend(true);
+            sounds.playBooktext();
+        } else {
+            controll.getControllCommandSet().runDatabaseMotion("Bookintro_out");
+            controll.SendControolPack();
+        }
+
+    }
 
 }

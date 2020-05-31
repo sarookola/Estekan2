@@ -11,20 +11,21 @@ package DataBox_cutom;
  */
 public class Questions {
 
-    String question, goz0,goz1, goz2, goz3, goz4, pic;
-    int correct_goz,time;
+    String question, goz0, goz1, goz2, goz3, goz4, pic, bookPic, bookText;
+    int correct_goz, time;
     boolean used;
 
     public Questions() {
         question = "سوال نونه";
         pic = "pictures\\nopic.png";
-        goz0="سوال است";
+        goz0 = "سوال است";
         goz1 = "گزینه یک";
         goz2 = "کزینه دو";
         goz3 = "گزینه سه";
         goz4 = "گزینه  چهار";
         correct_goz = 2;
-
+        bookPic = "pictures\\nopic.png";
+        bookText = "نام کتاب";
         used = false;
     }
 
@@ -126,5 +127,34 @@ public class Questions {
         }
         return st;
     }
-                  
+
+    public String getBookPic() {
+        if (bookPic == null) {
+            bookPic = new String("pictures\\nopic.png");
+        }
+        return bookPic;
+    }
+
+    public void setBookPic(String bookPic) {
+        if (bookPic == null) {
+            this.bookPic = new String("pictures\\nopic.png");
+        }
+
+        this.bookPic = bookPic;
+    }
+
+    public String getBookText() {
+        if (bookText == null) {
+            bookText = new String("نام کتاب");
+        }
+        return bookText;
+    }
+
+    public void setBookText(String bookText) {
+        if (bookText == null) {
+            this.bookText = new String("نام کتاب");
+        }
+        this.bookText = bookText;
+    }
+
 }
