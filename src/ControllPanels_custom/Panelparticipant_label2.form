@@ -85,12 +85,12 @@
                 <Property name="rows" type="int" value="0"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JToggleButton" name="jToggleButtonLower">
+                <Component class="javax.swing.JToggleButton" name="jToggleButtonLower2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Lower SELECT"/>
+                    <Property name="text" type="java.lang.String" value="Lower  POINTS"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonLowerActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonLower2ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -111,12 +111,12 @@
                 <Property name="rows" type="int" value="0"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JToggleButton" name="jToggleButtonLower2">
+                <Component class="javax.swing.JToggleButton" name="jToggleButtonLower">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Lower  POINTS"/>
+                    <Property name="text" type="java.lang.String" value="Lower"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonLower2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonLowerActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

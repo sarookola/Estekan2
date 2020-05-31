@@ -21,24 +21,21 @@ public class Sounds2 extends JSO.Com.Main.Sounds {
     String effect2 = "sounds\\effect2.mp3";
     String effect3 = "sounds\\effect3.mp3";
     String effect4 = "sounds\\effect4.mp3",
+            silence="sounds\\silence.mp3",
+              Goz_in="sounds\\Goz_in.mp3",
+            select="sounds\\select.mp3",
+             Hunter="sounds\\Hunter.mp3",
             newramz = "sounds\\newramz.mp3",
-            partcorrect = "sounds\\partcorrect.mp3",
-            BROOmand22 = "sounds\\BROOmand22.mp3",
-            //                String gamename[] = {"سوال", "ایرانشناسی",         "نمایش فیلم",       "بازی حروف",            "بازی مکعب",       "موسیقی تیتراژ",     "بازی 2",          "7",                "8",                 "9",               "10"};
-            games[] = {"sounds\\game0.mp3", "sounds\\game0.mp3",                 "sounds\\FilmStop.mp3", "sounds\\game0.mp3", "sounds\\game0.mp3", "sounds\\silence.mp3", "sounds\\game0.mp3", "sounds\\game0.mp3", "sounds\\game0.mp3", "sounds\\game0.mp3", "sounds\\prize.mp3"},
-            dance3bowls= "sounds\\dance3bowls.mp3",
-            door1 = "sounds\\door1.mp3",
-            door2 = "sounds\\door2.mp3",
-            wipere = "sounds\\wipeRe.mp3",
-            wipe2="sounds\\wipe2.mp3",
-            prizes = "sounds\\prize.mp3",
+            games[] = {"sounds\\game0.mp3", "sounds\\game0.mp3"},
             coin = "sounds\\coin.mp3",
             coinEnd = "sounds\\coinEnd.mp3",
-            parIn = "sounds\\parIn.mp3",
+            PlayerIn = "sounds\\PlayerIn.mp3",
+            PlayerOut="sounds\\Player_out.mp3", 
             oscar = "sounds\\oscar.mp3",
-            double_beep_beep="sounds\\double-beep-beep.mp3",
-            filmStop="sounds\\FilmStop.mp3",
+            Not_As_It_Seems="sounds\\Not As It Seems.mp3",
+            qTExt="sounds\\qTExt.mp3",
             timeOut = "sounds\\timeOut.mp3";
+    
 
     public void playTimeOut() {
         playLittleNonStop(timeOut);
@@ -57,17 +54,6 @@ public class Sounds2 extends JSO.Com.Main.Sounds {
     private void playLittleNonStop(String st) {
         playmp31(st);
     }
-
-    public void playselectZangBlur() {
-
-        playLittle(red);
-
-    }
-
-    public void playcheck() {
-        playLong(check);
-    }
-
     public void playWin() {
         stopAll();
         playLittle(win);
@@ -127,34 +113,6 @@ public class Sounds2 extends JSO.Com.Main.Sounds {
     public void playNewRamz() {
         playLittle(newramz);
     }
-
-    public void playPartCOrrect() {
-        playLittleNonStop(partcorrect);
-    }
-
-    public void playBROOmand22() {
-        playLittle(BROOmand22);
-    }
-
-//    public void playkamanFree() {
-//        playLittleNonStop(kaman_free);
-//    }
-//
-//    public void playkamanTarget() {
-//        playLittleNonStop(kaman_target);
-//    }
-    public void playDoor1() {
-        playLittle(door1);
-    }
-
-    public void playDoor2() {
-        playLittle(door2);
-    }
-
-    public void playWipeRe() {
-        playLittle(wipere);
-    }
-
     public void playGame(int index) {
         if (index < games.length) {
             playLong(games[index]);
@@ -162,11 +120,6 @@ public class Sounds2 extends JSO.Com.Main.Sounds {
             System.out.println("980422  index of  music games  is bigger than it's lenght");
         }
     }
-
-    void playPrizesInout() {
-        playLong(prizes);
-    }
-
     void playcoin() {
         playLong(coin);
     }
@@ -176,27 +129,38 @@ public class Sounds2 extends JSO.Com.Main.Sounds {
     }
 
     void playoscar() {
+        stopAll();
         playLong(oscar);
     }
 
-    public void playParIn() {
-        playLittle(parIn);
+    public void playPlayerIn() {
+        playLittle(PlayerIn);
     }
-    
-    public void playWipin() {
-        stopAll();
-        playLittle(wipe2);
+      public void playPlayerOut() {
+        playLittle(PlayerOut);
+    }
+     void playNotAsItSeems() {
+        playLong(Not_As_It_Seems);
     }
 
-    void playdance3Bowls() {
-         stopAll();
-        playLong(dance3bowls);
+    void playSilence() {
+playLong(silence);
+ playLittle(silence);
     }
-     void playdouble_beep_beep() {
-        playLittle(double_beep_beep);
+  void  playQtext(){
+       playLong(qTExt); 
     }
-      void playFilmStop() {
-        playLong(filmStop);
+
+    void playHunter() {
+        playLong(Hunter); 
     }
-     
+
+    void playSelecting() {
+        playLittle(select);
+    }
+   void playGoz_in() {
+        playLittle(Goz_in);
+    }
+
+
 }

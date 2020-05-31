@@ -315,5 +315,10 @@ server.SendControolPack(controolPack);
     public void RecieveComPort(int c) {
               System.out.println("990125 -comport received ="+c);
     }
+    
+    public void resetComPort(){
+        communicatePortPanel.resetforQ();
+        
+    }
 
 }

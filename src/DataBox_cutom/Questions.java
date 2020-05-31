@@ -11,13 +11,14 @@ package DataBox_cutom;
  */
 public class Questions {
 
-    String question, goz1, goz2, goz3, goz4, pic;
+    String question, goz0,goz1, goz2, goz3, goz4, pic;
     int correct_goz,time;
     boolean used;
 
     public Questions() {
         question = "سوال نونه";
         pic = "pictures\\nopic.png";
+        goz0="سوال است";
         goz1 = "گزینه یک";
         goz2 = "کزینه دو";
         goz3 = "گزینه سه";
@@ -33,6 +34,14 @@ public class Questions {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public String getGoz0() {
+        return goz0;
+    }
+
+    public void setGoz0(String goz0) {
+        this.goz0 = goz0;
     }
 
     public String getGoz1() {

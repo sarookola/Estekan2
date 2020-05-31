@@ -75,10 +75,10 @@ void non(){
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        jToggleButtonLower = new javax.swing.JToggleButton();
+        jToggleButtonLower2 = new javax.swing.JToggleButton();
         jPanel13 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
-        jToggleButtonLower2 = new javax.swing.JToggleButton();
+        jToggleButtonLower = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
         jPanelNames = new javax.swing.JPanel();
 
@@ -113,13 +113,13 @@ void non(){
 
         jPanel12.setLayout(new java.awt.GridLayout(0, 1));
 
-        jToggleButtonLower.setText("Lower SELECT");
-        jToggleButtonLower.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButtonLower2.setText("Lower  POINTS");
+        jToggleButtonLower2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButtonLowerActionPerformed(evt);
+                jToggleButtonLower2ActionPerformed(evt);
             }
         });
-        jPanel12.add(jToggleButtonLower);
+        jPanel12.add(jToggleButtonLower2);
 
         jPanel10.add(jPanel12);
 
@@ -129,13 +129,13 @@ void non(){
 
         jPanel15.setLayout(new java.awt.GridLayout(0, 1));
 
-        jToggleButtonLower2.setText("Lower  POINTS");
-        jToggleButtonLower2.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButtonLower.setText("Lower");
+        jToggleButtonLower.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButtonLower2ActionPerformed(evt);
+                jToggleButtonLowerActionPerformed(evt);
             }
         });
-        jPanel15.add(jToggleButtonLower2);
+        jPanel15.add(jToggleButtonLower);
 
         jPanel13.add(jPanel15);
 

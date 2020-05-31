@@ -160,7 +160,7 @@ public class Participant {
     }
 
     public void clearQ() {
-        current_timex100 = -1;
+        current_timex100 = 0;
         current_selection = 0;
         current_changedAnswer = 0;
         current_pointx1000 = 0;

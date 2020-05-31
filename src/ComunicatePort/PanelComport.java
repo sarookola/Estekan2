@@ -7,6 +7,7 @@ package ComunicatePort;
 
 import ControllPanels_custom.EstekanBase;
 import com.fazecast.jSerialComm.SerialPort;
+import java.util.ResourceBundle;
 
 
 
@@ -24,7 +25,14 @@ public class PanelComport extends javax.swing.JPanel implements ComunicatePortI{
     EstekanBase nMain;
     int id;
     boolean newsha=false;
-
+ boolean b;
+void nof(){
+    b=newsha;
+    newsha=false;
+}
+void non(){
+    newsha=b;
+}
     public PanelComport(EstekanBase nMain) {
          initComponents();
         comport2 = new Comport2(this);
@@ -267,5 +275,18 @@ public class PanelComport extends javax.swing.JPanel implements ComunicatePortI{
     private void startcomport() {
       if(newsha && jComboBox1.getItemCount()>0)
           comport2.connecttoPOrt(jComboBox1.getSelectedIndex());
+    }
+
+    public void resetforQ() {
+       if(newsha){
+           nof();
+           jSpinner_1.setValue(0);
+           jSpinner_2.setValue(0);
+           jSpinner_3.setValue(0);
+           jSpinner_4.setValue(0);
+           nMain.resetFromComport();
+           non();
+       }
+      
     }
 }

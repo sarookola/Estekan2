@@ -45,7 +45,7 @@ public class Panelparticipants extends javax.swing.JPanel implements TimerUser {
         startdelayB = false;
         timerFixstop = database0.getTimerFixstop();
         timer = new TimerTimer(this, 0, 0, 6000, 0);
-        timer.setWait(25);
+        timer.setWait(10);
         timer.setWaitTimeAbselute(true);
         timer.setActive(true);
         timer.start();
@@ -380,7 +380,7 @@ public class Panelparticipants extends javax.swing.JPanel implements TimerUser {
                 if ((timecurrent - startaddingTimer) >= timerFixstop) {
                     int x2 = (int) jSpinnercurrentpoint.getValue();
                     int m = (int) jSpinnerTOTAL.getValue();
-                    if (x2 < -9 && m > 10) {
+                    if (x2 < -9 ) {//&& m > 10
                         jSpinnercurrentpoint.setValue(x2 + 10);
                         boolean b = newsha;
                         newsha = false;
@@ -471,10 +471,9 @@ public class Panelparticipants extends javax.swing.JPanel implements TimerUser {
         for (int i = 0; i < jtextname.length; i++) {
             jtextname[i].setText(database0.getParticipants(id).getName(i));
         }
-
         jSpinnerError.setValue(database0.getParticipants(id).getCurrent_changedAnswer());
-        jSpinnerTOTAL.setValue(database0.getParticipants(id).getCurrent_pointx1000());
-        jSpinnercurrentpoint.setValue(0);
+        jSpinnerTOTAL.setValue(database0.getParticipants(id).getPointTotal());
+        jSpinnercurrentpoint.setValue(database0.getParticipants(id).getCurrent_pointx1000());
         jSpinnertime1.setValue(database0.getParticipants(id).getCurrent_timex100());
         jSpinnercurrentspeed.setValue(database0.getParticipants(id).getCurrent_Speed1234());
         imagePanel.drawImage(database0.getParticipants(id).getPic());

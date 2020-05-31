@@ -30,9 +30,10 @@ public class Database0 {
 
     int timeGameq = 20, timeGameFinal = 50;
 
-    long timerFixstop = 100;
+    long timerFixstop = 50;
 
     database_File_address file_address;
+    String speed1234[]={"اول","دوم","سوم","چهارم"};
     int currentQtime, currentAnsweredTime, currentansweredTotal;
     Participant[] participants;
     int ParticipantCount = 5;
@@ -386,5 +387,14 @@ public class Database0 {
     public void setBasketTime(int index, int basketTime) {
         this.basketTime[index] = basketTime;
     }
+
+    public String getSpeed1234(int index) {
+          if(speed1234==null) speed1234 = new String[]{"اول","دوم","سوم","چهارم"};
+          if(index>=0 && index<4)
+        return speed1234[index];
+          else return "-";
+    }
+
+
 
 }
